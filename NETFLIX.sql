@@ -42,7 +42,7 @@ from
 from netflix
 group by type,rating
 )
-where rank=1
+where rank=1;
 
 
 
@@ -74,7 +74,7 @@ ORDER BY SPLIT_PART(duration, ' ', 1)::INT DESC;
 
 SELECT *
 FROM netflix
-WHERE TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 years'
+WHERE TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 years';
 
 
 ---7. Find all the movies/TV shows by director 'Rajiv Chilaka'!
