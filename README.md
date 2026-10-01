@@ -1,3 +1,5 @@
+<img width="672" height="311" alt="image" src="https://github.com/user-attachments/assets/3124c2f2-058b-49dd-babb-4d198814f79a" />
+
 # 🍿 Netflix Content Strategy SQL Analysis
 
 ## 🚀 Objective
