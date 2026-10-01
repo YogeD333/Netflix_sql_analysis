@@ -6,11 +6,18 @@
 Executed complex SQL queries on Netflix's catalog database to extract business insights regarding content trends, regional production, and genre popularity.
 
 ## 🛠 Technical Execution
-* **Database:** MySQL
-* **Techniques Used:** Advanced Aggregations, Subqueries, Date/Time Functions, String Manipulation.
+* **Database:** PostgreSQL
+* **Techniques Used:** Window Functions, Subqueries, Array Unnesting, Date/Time Functions, Conditional Logic (CASE WHEN).
 
-## 💻 Sample Query: Content Production Trends
-*The following query analyzes the growth of TV Shows vs. Movies over the last decade.*
+## 💻 Sample Query: Most Common Rating by Content Type
+*The following query determines the most frequent content rating for both Movies and TV Shows using a Window Function.*
 
 ```sql
--- Paste ONE of your best, most complex queries from the Netflix project right here!
+SELECT type, rating
+FROM (
+    SELECT type, rating, COUNT(*),
+           RANK() OVER(PARTITION BY type ORDER BY COUNT(*) DESC) as rank
+    FROM netflix
+    GROUP BY type, rating
+) AS ranked_ratings
+WHERE rank = 1;
